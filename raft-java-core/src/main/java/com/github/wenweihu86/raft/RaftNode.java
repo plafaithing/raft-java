@@ -2,10 +2,13 @@ package com.github.wenweihu86.raft;
 
 import com.baidu.brpc.client.RpcCallback;
 import com.github.wenweihu86.raft.proto.RaftProto;
+import com.github.wenweihu86.raft.service.RaftConsensusServiceAsync;
 import com.github.wenweihu86.raft.storage.SegmentedLog;
 import com.github.wenweihu86.raft.util.ConfigurationUtils;
 import com.google.protobuf.ByteString;
 import com.github.wenweihu86.raft.storage.Snapshot;
+import com.github.wenweihu86.raft.NodeMonitor;
+import com.github.wenweihu86.raft.NetworkHealthMonitor;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.googlecode.protobuf.format.JsonFormat;
 import org.apache.commons.io.FileUtils;
@@ -46,6 +49,20 @@ public class RaftNode {
     private SegmentedLog raftLog;
     private Snapshot snapshot;
 
+    // 节点监控实例
+    private NodeMonitor nodeMonitor;
+    private final NetworkHealthMonitor healthMonitor;
+    private volatile long lastFlushTime = System.currentTimeMillis();
+    
+    // 批量缓冲区（用于日志批量同步优化）
+    private final List<RaftProto.LogEntry> batchBuffer = new ArrayList<>();
+    private final Object batchLock = new Object();
+
+    // 评分权重配置（可调整）
+    private static final double CPU_WEIGHT = 0.4;
+    private static final double MEM_WEIGHT = 0.4;
+    private static final double STABILITY_WEIGHT = 0.2;
+
     private NodeState state = NodeState.STATE_FOLLOWER;
     // 服务器最后一次知道的任期号（初始化为 0，持续递增）
     private long currentTerm;
@@ -71,6 +88,7 @@ public class RaftNode {
                     RaftProto.Server localServer,
                     StateMachine stateMachine) {
         this.raftOptions = raftOptions;
+        this.healthMonitor = new NetworkHealthMonitor(0.1);
         RaftProto.Configuration.Builder confBuilder = RaftProto.Configuration.newBuilder();
         for (RaftProto.Server server : servers) {
             confBuilder.addServers(server);
@@ -84,7 +102,8 @@ public class RaftNode {
         raftLog = new SegmentedLog(raftOptions.getDataDir(), raftOptions.getMaxSegmentFileSize());
         snapshot = new Snapshot(raftOptions.getDataDir());
         snapshot.reload();
-
+        nodeMonitor = new NodeMonitor();
+        
         currentTerm = raftLog.getMetaData().getCurrentTerm();
         votedFor = raftLog.getMetaData().getVotedFor();
         commitIndex = Math.max(snapshot.getMetaData().getLastIncludedIndex(), raftLog.getMetaData().getCommitIndex());
@@ -141,7 +160,7 @@ public class RaftNode {
     }
 
     // client set command
-    public boolean replicate(byte[] data, RaftProto.EntryType entryType) {
+    /*public boolean replicate(byte[] data, RaftProto.EntryType entryType) {
         lock.lock();
         long newLastLogIndex = 0;
         try {
@@ -191,9 +210,176 @@ public class RaftNode {
             return false;
         }
         return true;
+    } */
+    public boolean replicate(byte[] data, RaftProto.EntryType entryType) {
+        lock.lock();
+        try {
+            if (state != NodeState.STATE_LEADER) {
+                LOG.debug("I'm not the leader");
+                return false;
+            }
+            RaftProto.LogEntry logEntry = RaftProto.LogEntry.newBuilder()
+                    .setTerm(currentTerm)
+                    .setType(entryType)
+                    .setData(ByteString.copyFrom(data)).build();
+            
+            long newLastLogIndex = raftLog.append(List.of(logEntry));
+
+            int recommendedBatchSize = healthMonitor.getRecommendedBatchSize();
+            boolean isNetworkPoor = recommendedBatchSize <= 1;
+            boolean shouldSendNow = isNetworkPoor 
+                || System.currentTimeMillis() - lastFlushTime > raftOptions.getBatchMaxAwaitTimeout()
+                || entryType == RaftProto.EntryType.ENTRY_TYPE_CONFIGURATION;
+
+            synchronized (batchLock) {
+                batchBuffer.add(logEntry);
+                
+                LOG.debug("Batch buffer size: {}, recommended: {}, shouldSendNow: {}", 
+                    batchBuffer.size(), recommendedBatchSize, shouldSendNow);
+                
+                if (shouldSendNow || batchBuffer.size() >= recommendedBatchSize) {
+                    LOG.info("Sending batch: size={}, peers={}", batchBuffer.size(), peerMap.size());
+                    
+                    for (RaftProto.Server server : configuration.getServersList()) {
+                        Peer peer = peerMap.get(server.getServerId());
+                        if (peer != null) {
+                            List<RaftProto.LogEntry> entriesToSend = new ArrayList<>(batchBuffer);
+                            executorService.submit(() -> sendBatchToPeer(peer, entriesToSend));
+                        }
+                    }
+                    batchBuffer.clear();
+                    lastFlushTime = System.currentTimeMillis();
+                }
+            }
+
+            if (!raftOptions.isAsyncWrite()) {
+                long startTime = System.currentTimeMillis();
+                while (lastAppliedIndex < newLastLogIndex) {
+                    if (System.currentTimeMillis() - startTime >= raftOptions.getMaxAwaitTimeout()) {
+                        break;
+                    }
+                    try {
+                        commitIndexCondition.await(raftOptions.getMaxAwaitTimeout(), TimeUnit.MILLISECONDS);
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                        break;
+                    }
+                }
+            }
+            LOG.debug("lastAppliedIndex={} newLastLogIndex={}", lastAppliedIndex, newLastLogIndex);
+            return lastAppliedIndex >= newLastLogIndex;
+        } finally {
+            lock.unlock();
+        }
     }
 
-    public void appendEntries(Peer peer) {
+    public void sendBatchToPeer(Peer peer, List<RaftProto.LogEntry> entries) {
+        // 快照检查（完全保留原有逻辑）
+        boolean isNeedInstallSnapshot = false;
+        long firstLogIndex;
+        long numEntries;
+        
+        lock.lock();
+        try {
+            firstLogIndex = raftLog.getFirstLogIndex();
+            if (peer.getNextIndex() < firstLogIndex) {
+                isNeedInstallSnapshot = true;
+            }
+        } finally {
+            lock.unlock();
+        }
+        LOG.info("is need snapshot={}, peer={}", isNeedInstallSnapshot, peer.getServer().getServerId());
+        if (isNeedInstallSnapshot) {
+            if (!installSnapshot(peer)) {
+                healthMonitor.recordRpcResult(peer.getServer().getServerId(), false, 0);
+                return;
+            }
+        }
+    
+        // 批量发送逻辑
+        RaftProto.AppendEntriesRequest.Builder requestBuilder = RaftProto.AppendEntriesRequest.newBuilder();
+        long startTime = System.currentTimeMillis();
+        boolean success = false;
+        
+        try {
+            lock.lock();
+            try {
+                long prevLogIndex = peer.getNextIndex() - 1;
+                long prevLogTerm;
+                if (prevLogIndex == 0) {
+                    prevLogTerm = 0;
+                } else if (prevLogIndex == snapshot.getMetaData().getLastIncludedIndex()) {
+                    prevLogTerm = snapshot.getMetaData().getLastIncludedTerm();
+                } else {
+                    prevLogTerm = raftLog.getEntryTerm(prevLogIndex);
+                }
+                
+                requestBuilder.setServerId(localServer.getServerId());
+                requestBuilder.setTerm(currentTerm);
+                requestBuilder.setPrevLogIndex(prevLogIndex);
+                requestBuilder.setPrevLogTerm(prevLogTerm);
+                    //.addAllEntries(entries)  // 关键修改点：批量添加条目
+                numEntries = packEntries(peer.getNextIndex(), requestBuilder);
+                requestBuilder.setCommitIndex(Math.min(commitIndex, prevLogIndex + numEntries));
+                    
+            } finally {
+                lock.unlock();
+            }
+            
+            RaftProto.AppendEntriesRequest request = requestBuilder.build();
+            RaftProto.AppendEntriesResponse response = 
+                peer.getRaftConsensusServiceAsync().appendEntries(request);
+            success = processAppendResponse(peer, response, (int) numEntries);
+            
+        } catch (Exception e) {
+            LOG.error("AppendEntries failed to peer {}", peer.getServer().getServerId(), e);
+            nodeMonitor.recordDisconnect(peer.getServer().getServerId());
+        } finally {
+            healthMonitor.recordRpcResult(
+                peer.getServer().getServerId(),
+                success,
+                System.currentTimeMillis() - startTime
+            );
+        }
+    }
+    
+    private boolean processAppendResponse(Peer peer, RaftProto.AppendEntriesResponse response, int sentEntriescounts) {
+        lock.lock();
+        try {
+            if (response == null) {
+                nodeMonitor.recordDisconnect(peer.getServer().getServerId());
+                if (!ConfigurationUtils.containsServer(configuration, peer.getServer().getServerId())) {
+                    peerMap.remove(peer.getServer().getServerId());
+                    peer.getRpcClient().stop();
+                }
+                return false;
+            }
+            
+            // 原有term检查逻辑
+            if (response.getTerm() > currentTerm) {
+                stepDown(response.getTerm());
+                return false;
+            }
+            
+            if (response.getResCode() == RaftProto.ResCode.RES_CODE_SUCCESS) {
+                // 更新peer索引（注意：这里使用批量条目的总数）
+                long matchedIndex = peer.getNextIndex() - 1 + sentEntriescounts;
+                peer.setMatchIndex(matchedIndex);
+                peer.setNextIndex(matchedIndex + 1);
+                
+                if (ConfigurationUtils.containsServer(configuration, peer.getServer().getServerId())) {
+                    advanceCommitIndex();  // 原有提交推进逻辑
+                }
+                return true;
+            } else {
+                peer.setNextIndex(response.getLastLogIndex() + 1);
+                return false;
+            }
+        } finally {
+            lock.unlock();
+        }
+    }
+    /*public void appendEntries(Peer peer) {
         RaftProto.AppendEntriesRequest.Builder requestBuilder = RaftProto.AppendEntriesRequest.newBuilder();
         long prevLogIndex;
         long numEntries;
@@ -248,16 +434,18 @@ public class RaftNode {
         } finally {
             lock.unlock();
         }
-
+        LOG.info("begin appendEntries1");
         RaftProto.AppendEntriesRequest request = requestBuilder.build();
         RaftProto.AppendEntriesResponse response = peer.getRaftConsensusServiceAsync().appendEntries(request);
-
+        
+        LOG.info("end appendEntries1");
         lock.lock();
         try {
             if (response == null) {
                 LOG.warn("appendEntries with peer[{}:{}] failed",
                         peer.getServer().getEndpoint().getHost(),
                         peer.getServer().getEndpoint().getPort());
+                        nodeMonitor.recordDisconnect(peer.getServer().getServerId());
                 if (!ConfigurationUtils.containsServer(configuration, peer.getServer().getServerId())) {
                     peerMap.remove(peer.getServer().getServerId());
                     peer.getRpcClient().stop();
@@ -292,7 +480,8 @@ public class RaftNode {
         } finally {
             lock.unlock();
         }
-    }
+    } */
+    
 
     // in lock
     public void stepDown(long newTerm) {
@@ -428,6 +617,34 @@ public class RaftNode {
     }
 
     /**
+     * 计算当前节点的综合评分
+     * 公式：评分 = (CPU空闲率 * CPU权重) + (内存空闲率 * 内存权重) + (稳定性 * 稳定性权重)
+     * @return 综合评分（范围 0~100，越高越好）
+     */
+    public double calculateSelfScore() {
+        // 获取资源使用率
+        double cpuUsage = nodeMonitor.getCpuUsage();       // CPU使用率（%）
+        double memoryUsage = nodeMonitor.getMemoryUsage(); // 内存使用率（%）
+        
+        // 计算资源空闲率（使用率越低，评分越高）
+        double cpuScore = 100 - cpuUsage;
+        double memScore = 100 - memoryUsage;
+        
+        // 计算稳定性评分（断联次数越少，评分越高）
+        double stabilityScore = nodeMonitor.getStabilityScore(localServer.getServerId());
+        
+        // 加权计算总分
+        double totalScore = (cpuScore * CPU_WEIGHT) 
+                          + (memScore * MEM_WEIGHT) 
+                          + (stabilityScore * STABILITY_WEIGHT);
+        
+        LOG.info("节点{} 评分计算: CPU={}%, 内存={}%, 断联={}分 → 总分={}",
+        localServer.getServerId(), cpuUsage, memoryUsage, stabilityScore, totalScore);
+        // 确保评分在合理范围内
+        return Math.max(0, Math.min(100, totalScore));
+    }
+
+    /**
      * 选举定时器
      */
     private void resetElectionTimer() {
@@ -529,8 +746,9 @@ public class RaftNode {
             peer.setVoteGranted(null);
             requestBuilder.setServerId(localServer.getServerId())
                     .setTerm(currentTerm)
+                    .setLastLogTerm(getLastLogTerm())
                     .setLastLogIndex(raftLog.getLastLogIndex())
-                    .setLastLogTerm(getLastLogTerm());
+                    .setCandidateScore(calculateSelfScore());
         } finally {
             lock.unlock();
         }
@@ -552,8 +770,9 @@ public class RaftNode {
             peer.setVoteGranted(null);
             requestBuilder.setServerId(localServer.getServerId())
                     .setTerm(currentTerm)
+                    .setLastLogTerm(getLastLogTerm())
                     .setLastLogIndex(raftLog.getLastLogIndex())
-                    .setLastLogTerm(getLastLogTerm());
+                    .setCandidateScore(calculateSelfScore());
         } finally {
             lock.unlock();
         }
@@ -623,6 +842,7 @@ public class RaftNode {
             LOG.warn("pre vote with peer[{}:{}] failed",
                     peer.getServer().getEndpoint().getHost(),
                     peer.getServer().getEndpoint().getPort());
+            nodeMonitor.recordDisconnect(peer.getServer().getServerId());
             peer.setVoteGranted(new Boolean(false));
         }
     }
@@ -689,6 +909,7 @@ public class RaftNode {
             LOG.warn("requestVote with peer[{}:{}] failed",
                     peer.getServer().getEndpoint().getHost(),
                     peer.getServer().getEndpoint().getPort());
+            nodeMonitor.recordDisconnect(peer.getServer().getServerId());
             peer.setVoteGranted(new Boolean(false));
         }
     }
@@ -720,7 +941,7 @@ public class RaftNode {
     }
 
     // in lock, 开始心跳，对leader有效
-    private void startNewHeartbeat() {
+    /*private void startNewHeartbeat() {
         LOG.debug("start new heartbeat, peers={}", peerMap.keySet());
         for (final Peer peer : peerMap.values()) {
             executorService.submit(new Runnable() {
@@ -728,6 +949,16 @@ public class RaftNode {
                 public void run() {
                     appendEntries(peer);
                 }
+            });
+        }
+        resetHeartbeatTimer();
+    }*/
+    private void startNewHeartbeat() {
+        LOG.debug("start new heartbeat, peers={}", peerMap.keySet());
+        for (final Peer peer : peerMap.values()) {
+            executorService.submit(() -> {
+                // 直接发送空日志列表作为心跳
+                sendBatchToPeer(peer, Collections.emptyList()); 
             });
         }
         resetHeartbeatTimer();
@@ -826,6 +1057,7 @@ public class RaftNode {
                     lastOffset = request.getOffset();
                     lastLength = request.getData().size();
                 } else {
+                    nodeMonitor.recordDisconnect(peer.getServer().getServerId());
                     isSuccess = false;
                     break;
                 }

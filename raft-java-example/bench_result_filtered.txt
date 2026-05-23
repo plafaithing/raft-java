@@ -1,0 +1,1328 @@
+﻿
+  Raft Performance Benchmark Tool
+Usage: benchmark.sh <test_type> [options]
+  throughput   - Test throughput (requests/sec)
+  benchmark.sh throughput 10 60   # 10 threads, 60 seconds
+  benchmark.sh election              # Test leader election (kill leader manual
+ly)
+  benchmark.sh stress cpu             # Simulate high CPU load on this node
+  benchmark.sh stress memory          # Simulate high memory usage on this node
+  benchmark.sh hetero 10 60       # Test heterogeneous cluster
+Running Throughput Test...
+Threads: 30, Duration: 60s
+  Raft Throughput Benchmark
+Cluster: list://127.0.0.1:8051,127.0.0.1:8052,127.0.0.1:8053,127.0.0.1:8054,127
+.0.0.1:8055,127.0.0.1:8056,127.0.0.1:8057
+Threads: 30
+Duration: 60 seconds
+Starting benchmark...
+ERROR StatusLogger No log4j2 configuration file found. Using default configurat
+ion: logging only errors to the console. Set system property 'log4j2.debug' to 
+show Log4j2 internal initialization logging.
+23:25:45.848 [pool-2-thread-19] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:45.848 [pool-2-thread-16] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:45.848 [pool-2-thread-3] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:45.851 [pool-2-thread-21] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:45.848 [pool-2-thread-6] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:46.305 [pool-2-thread-20] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:46.851 [pool-2-thread-12] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:46.895 [pool-2-thread-27] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:46.904 [pool-2-thread-1] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:46.904 [pool-2-thread-17] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:46.907 [pool-2-thread-30] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:46.906 [pool-2-thread-15] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:47.442 [pool-2-thread-4] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:47.465 [pool-2-thread-25] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:47.466 [pool-2-thread-22] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:47.482 [pool-2-thread-28] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:47.481 [pool-2-thread-5] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:48.322 [pool-2-thread-29] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:48.326 [pool-2-thread-7] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:48.330 [pool-2-thread-9] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:48.347 [pool-2-thread-10] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:48.468 [pool-2-thread-13] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:48.479 [pool-2-thread-14] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:48.900 [pool-2-thread-8] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:49.321 [pool-2-thread-20] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:49.495 [pool-2-thread-24] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:49.857 [pool-2-thread-12] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:49.901 [pool-2-thread-27] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:49.909 [pool-2-thread-1] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:49.913 [pool-2-thread-15] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:49.915 [pool-2-thread-17] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:50.450 [pool-2-thread-4] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:50.839 [pool-2-thread-23] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:50.863 [pool-2-thread-2] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:50.883 [pool-2-thread-16] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:51.328 [pool-2-thread-29] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:51.478 [pool-2-thread-25] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:51.489 [pool-2-thread-14] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:51.492 [pool-2-thread-5] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:51.890 [pool-2-thread-3] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:51.905 [pool-2-thread-19] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:51.921 [pool-2-thread-11] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:52.334 [pool-2-thread-20] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:52.336 [pool-2-thread-18] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:52.359 [pool-2-thread-10] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:52.480 [pool-2-thread-22] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:52.499 [pool-2-thread-26] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:52.865 [pool-2-thread-12] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:52.891 [pool-2-thread-6] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:52.896 [pool-2-thread-21] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:52.913 [pool-2-thread-1] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:52.917 [pool-2-thread-15] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:52.919 [pool-2-thread-30] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:53.354 [pool-2-thread-7] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:53.499 [pool-2-thread-28] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:53.887 [pool-2-thread-16] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:53.916 [pool-2-thread-27] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:54.362 [pool-2-thread-9] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:54.481 [pool-2-thread-25] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:54.518 [pool-2-thread-24] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:54.914 [pool-2-thread-19] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:54.927 [pool-2-thread-11] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:54.926 [pool-2-thread-17] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:55.336 [pool-2-thread-29] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:55.343 [pool-2-thread-20] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:55.485 [pool-2-thread-13] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:55.486 [pool-2-thread-22] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:55.502 [pool-2-thread-14] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:55.849 [pool-2-thread-23] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:55.870 [pool-2-thread-12] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:55.902 [pool-2-thread-3] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:55.917 [pool-2-thread-8] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:56.351 [pool-2-thread-18] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:56.358 [pool-2-thread-7] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:56.371 [pool-2-thread-10] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:56.500 [pool-2-thread-5] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:56.504 [pool-2-thread-28] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:56.876 [pool-2-thread-2] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:56.891 [pool-2-thread-16] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:56.931 [pool-2-thread-15] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:57.466 [pool-2-thread-4] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:57.492 [pool-2-thread-25] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:57.527 [pool-2-thread-24] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:57.909 [pool-2-thread-21] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:57.927 [pool-2-thread-30] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:57.930 [pool-2-thread-11] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:58.345 [pool-2-thread-29] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:58.386 [pool-2-thread-9] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:58.912 [pool-2-thread-3] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:58.922 [pool-2-thread-19] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:58.927 [pool-2-thread-1] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:59.354 [pool-2-thread-18] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:59.366 [pool-2-thread-7] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:59.375 [pool-2-thread-10] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:59.495 [pool-2-thread-22] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:59.510 [pool-2-thread-28] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:59.884 [pool-2-thread-2] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:59.898 [pool-2-thread-16] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:59.912 [pool-2-thread-6] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:25:59.935 [pool-2-thread-27] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:00.363 [pool-2-thread-20] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:00.472 [pool-2-thread-4] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:00.497 [pool-2-thread-25] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:00.884 [pool-2-thread-12] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:00.914 [pool-2-thread-21] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:00.935 [pool-2-thread-30] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:01.351 [pool-2-thread-29] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:01.512 [pool-2-thread-5] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:01.540 [pool-2-thread-26] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:01.865 [pool-2-thread-23] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:01.939 [pool-2-thread-8] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:01.944 [pool-2-thread-15] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:02.358 [pool-2-thread-18] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:02.380 [pool-2-thread-10] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:02.502 [pool-2-thread-22] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:02.516 [pool-2-thread-28] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:02.522 [pool-2-thread-14] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:02.888 [pool-2-thread-2] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:03.398 [pool-2-thread-9] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:03.481 [pool-2-thread-4] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:03.501 [pool-2-thread-25] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:03.529 [pool-2-thread-13] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:03.910 [pool-2-thread-16] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:03.917 [pool-2-thread-21] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:03.920 [pool-2-thread-3] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:03.940 [pool-2-thread-30] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:03.942 [pool-2-thread-27] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:03.945 [pool-2-thread-11] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:03.972 [pool-2-thread-17] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:04.356 [pool-2-thread-29] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:04.378 [pool-2-thread-7] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:04.553 [pool-2-thread-24] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:04.871 [pool-2-thread-23] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:04.943 [pool-2-thread-8] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:05.375 [pool-2-thread-20] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:05.386 [pool-2-thread-10] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:05.554 [pool-2-thread-26] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:05.936 [pool-2-thread-19] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:05.961 [pool-2-thread-15] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:06.507 [pool-2-thread-25] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:06.524 [pool-2-thread-5] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:06.528 [pool-2-thread-14] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:06.531 [pool-2-thread-13] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:06.902 [pool-2-thread-12] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:06.904 [pool-2-thread-2] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:06.916 [pool-2-thread-16] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:06.920 [pool-2-thread-21] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:06.945 [pool-2-thread-1] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:06.947 [pool-2-thread-27] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:06.953 [pool-2-thread-11] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:06.979 [pool-2-thread-17] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:07.361 [pool-2-thread-29] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:07.876 [pool-2-thread-23] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:07.929 [pool-2-thread-3] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:07.938 [pool-2-thread-6] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:08.381 [pool-2-thread-20] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:08.394 [pool-2-thread-10] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:08.515 [pool-2-thread-22] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:08.562 [pool-2-thread-24] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:08.942 [pool-2-thread-19] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:09.513 [pool-2-thread-25] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:09.532 [pool-2-thread-14] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:09.562 [pool-2-thread-26] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:09.911 [pool-2-thread-12] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:09.920 [pool-2-thread-2] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:09.982 [pool-2-thread-17] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:10.548 [pool-2-thread-28] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:10.881 [pool-2-thread-23] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:10.930 [pool-2-thread-21] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:10.935 [pool-2-thread-3] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:10.941 [pool-2-thread-6] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:10.955 [pool-2-thread-1] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:10.964 [pool-2-thread-8] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:10.972 [pool-2-thread-15] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:11.399 [pool-2-thread-10] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:11.520 [pool-2-thread-22] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:11.546 [pool-2-thread-13] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:11.570 [pool-2-thread-24] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:11.935 [pool-2-thread-16] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:11.945 [pool-2-thread-19] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:11.959 [pool-2-thread-30] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:12.382 [pool-2-thread-18] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:12.424 [pool-2-thread-9] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:12.510 [pool-2-thread-4] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:12.517 [pool-2-thread-25] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:12.535 [pool-2-thread-14] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:12.567 [pool-2-thread-26] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:12.917 [pool-2-thread-12] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:12.929 [pool-2-thread-2] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:12.987 [pool-2-thread-17] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:13.395 [pool-2-thread-7] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:13.552 [pool-2-thread-28] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:13.553 [pool-2-thread-5] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:13.885 [pool-2-thread-23] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:13.940 [pool-2-thread-3] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:13.947 [pool-2-thread-6] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:13.968 [pool-2-thread-8] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:13.977 [pool-2-thread-15] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:14.576 [pool-2-thread-24] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:14.938 [pool-2-thread-21] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:14.963 [pool-2-thread-30] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:14.998 [pool-2-thread-11] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:15.390 [pool-2-thread-18] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:15.401 [pool-2-thread-20] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:15.406 [pool-2-thread-10] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:15.526 [pool-2-thread-22] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:15.923 [pool-2-thread-12] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:15.940 [pool-2-thread-2] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:16.400 [pool-2-thread-7] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:16.519 [pool-2-thread-4] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:16.525 [pool-2-thread-25] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:16.559 [pool-2-thread-5] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:16.577 [pool-2-thread-26] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:16.890 [pool-2-thread-23] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:16.954 [pool-2-thread-6] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:16.955 [pool-2-thread-19] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:16.958 [pool-2-thread-16] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:16.976 [pool-2-thread-27] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:17.437 [pool-2-thread-9] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:17.550 [pool-2-thread-14] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:17.560 [pool-2-thread-13] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:17.942 [pool-2-thread-21] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:17.984 [pool-2-thread-15] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:18.008 [pool-2-thread-17] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:18.410 [pool-2-thread-10] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:18.413 [pool-2-thread-29] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:18.985 [pool-2-thread-1] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:19.004 [pool-2-thread-11] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:19.405 [pool-2-thread-7] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:19.526 [pool-2-thread-4] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:19.567 [pool-2-thread-5] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:19.582 [pool-2-thread-24] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:19.893 [pool-2-thread-23] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:19.974 [pool-2-thread-30] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:19.985 [pool-2-thread-8] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:20.410 [pool-2-thread-20] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:20.415 [pool-2-thread-18] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:20.442 [pool-2-thread-9] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:20.564 [pool-2-thread-13] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:20.585 [pool-2-thread-26] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:20.949 [pool-2-thread-2] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:20.988 [pool-2-thread-16] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:20.989 [pool-2-thread-15] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:21.416 [pool-2-thread-10] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:21.423 [pool-2-thread-29] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:21.551 [pool-2-thread-22] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:21.553 [pool-2-thread-25] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:21.562 [pool-2-thread-14] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:21.975 [pool-2-thread-6] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:21.988 [pool-2-thread-1] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:22.013 [pool-2-thread-11] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:22.955 [pool-2-thread-21] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:22.969 [pool-2-thread-12] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:22.974 [pool-2-thread-3] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:22.997 [pool-2-thread-27] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:23.035 [pool-2-thread-17] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:23.413 [pool-2-thread-20] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:23.423 [pool-2-thread-18] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:23.591 [pool-2-thread-26] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:23.958 [pool-2-thread-2] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:23.992 [pool-2-thread-15] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:24.536 [pool-2-thread-4] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:24.559 [pool-2-thread-22] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:24.573 [pool-2-thread-13] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:24.593 [pool-2-thread-24] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:24.998 [pool-2-thread-1] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:25.017 [pool-2-thread-11] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:25.565 [pool-2-thread-25] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:25.585 [pool-2-thread-28] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:25.910 [pool-2-thread-23] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:25.960 [pool-2-thread-21] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:25.980 [pool-2-thread-3] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:25.990 [pool-2-thread-30] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:25.994 [pool-2-thread-19] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:25.996 [pool-2-thread-8] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:26.060 [pool-2-thread-17] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:26.421 [pool-2-thread-20] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:26.426 [pool-2-thread-10] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:26.463 [pool-2-thread-9] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:26.572 [pool-2-thread-14] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:26.596 [pool-2-thread-26] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:26.962 [pool-2-thread-2] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:26.981 [pool-2-thread-12] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:27.564 [pool-2-thread-22] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:27.578 [pool-2-thread-13] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:27.591 [pool-2-thread-5] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:27.596 [pool-2-thread-24] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:27.999 [pool-2-thread-15] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:28.002 [pool-2-thread-1] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:28.011 [pool-2-thread-27] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:28.021 [pool-2-thread-11] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:28.437 [pool-2-thread-18] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:28.914 [pool-2-thread-23] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:28.966 [pool-2-thread-21] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:28.998 [pool-2-thread-8] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:29.077 [pool-2-thread-17] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:29.437 [pool-2-thread-7] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:29.471 [pool-2-thread-9] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:29.576 [pool-2-thread-14] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:29.577 [pool-2-thread-25] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:29.601 [pool-2-thread-26] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:29.965 [pool-2-thread-2] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:29.993 [pool-2-thread-12] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:30.021 [pool-2-thread-16] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:30.550 [pool-2-thread-4] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:30.570 [pool-2-thread-22] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:30.583 [pool-2-thread-13] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:30.596 [pool-2-thread-5] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:30.599 [pool-2-thread-24] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:31.001 [pool-2-thread-30] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:31.003 [pool-2-thread-15] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:31.006 [pool-2-thread-1] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:31.008 [pool-2-thread-6] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:31.018 [pool-2-thread-27] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:31.442 [pool-2-thread-18] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:31.992 [pool-2-thread-3] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:32.010 [pool-2-thread-19] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:32.475 [pool-2-thread-9] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:32.581 [pool-2-thread-25] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:32.581 [pool-2-thread-14] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:32.969 [pool-2-thread-2] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:32.996 [pool-2-thread-12] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:33.026 [pool-2-thread-16] ERROR com.baidu.brpc.client.BrpcProxy - excepti
+on :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+23:26:34.006 [pool-2-thread-8] ERROR com.baidu.brpc.client.BrpcProxy - exceptio
+n :
+	at com.github.wenweihu86.raft.example.client.ThroughputBenchmark.lambda$main$0
+(ThroughputBenchmark.java:69) [raft-java-example-1.9.0.jar:?]
+========== Benchmark Results ==========
+Test duration: 61030 ms (61.03 seconds)
+Total requests: 2106
+Successful: 370
+Failed: 1736
+Success rate: 17.57%
+Throughput: 34.51 requests/sec
+Total bytes: 10399
+Avg bytes/request: 4.94
+
+

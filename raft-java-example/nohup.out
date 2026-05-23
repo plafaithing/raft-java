@@ -1,0 +1,6 @@
+Error: Could not find or load main class com.github.wenweihu86.raft.example.server.ServerMain
+Caused by: java.lang.ClassNotFoundException: com.github.wenweihu86.raft.example.server.ServerMain
+Error: Could not find or load main class com.github.wenweihu86.raft.example.server.ServerMain
+Caused by: java.lang.ClassNotFoundException: com.github.wenweihu86.raft.example.server.ServerMain
+Error: Could not find or load main class com.github.wenweihu86.raft.example.server.ServerMain
+Caused by: java.lang.ClassNotFoundException: com.github.wenweihu86.raft.example.server.ServerMain

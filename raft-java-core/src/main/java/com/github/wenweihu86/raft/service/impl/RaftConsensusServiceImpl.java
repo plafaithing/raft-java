@@ -81,7 +81,12 @@ public class RaftConsensusServiceImpl implements RaftConsensusService {
             boolean logIsOk = request.getLastLogTerm() > raftNode.getLastLogTerm()
                     || (request.getLastLogTerm() == raftNode.getLastLogTerm()
                     && request.getLastLogIndex() >= raftNode.getRaftLog().getLastLogIndex());
-            if (raftNode.getVotedFor() == 0 && logIsOk) {
+            LOG.info("RequestVote request from server {} " +
+                            "score is{}, this node score is{}, " +
+                            "votedFor={}, logIsOk={}",
+                    request.getServerId(), request.getCandidateScore(),
+                    raftNode.calculateSelfScore(), raftNode.getVotedFor(), logIsOk);
+            if (raftNode.getVotedFor() == 0 && logIsOk && request.getCandidateScore() > raftNode.calculateSelfScore()) {
                 raftNode.stepDown(request.getTerm());
                 raftNode.setVotedFor(request.getServerId());
                 raftNode.getRaftLog().updateMetaData(raftNode.getCurrentTerm(), raftNode.getVotedFor(), null, null);

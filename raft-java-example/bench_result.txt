@@ -1,0 +1,62 @@
+﻿==========================================
+  Raft Performance Benchmark Tool
+==========================================
+
+Usage: benchmark.sh <test_type> [options]
+
+Test Types:
+  throughput   - Test throughput (requests/sec)
+  election     - Test leader election convergence time
+  hetero      - Test heterogeneous cluster (leader preference)
+  stress       - Start node stressor (cpu/memory/network)
+  all         - Run all tests
+
+Examples:
+  benchmark.sh throughput 10 60   # 10 threads, 60 seconds
+  benchmark.sh election              # Test leader election (kill leader manually)
+  benchmark.sh stress cpu             # Simulate high CPU load on this node
+  benchmark.sh stress memory          # Simulate high memory usage on this node
+  benchmark.sh hetero 10 60       # Test heterogeneous cluster
+
+Running Throughput Test...
+Threads: 30, Duration: 5s
+==========================================
+  Raft Throughput Benchmark
+==========================================
+Cluster: list://127.0.0.1:8051,127.0.0.1:8052,127.0.0.1:8053,127.0.0.1:8054,127.0.0.1:8055,127.0.0.1:8056,127.0.0.1:8057
+Threads: 30
+Duration: 5 seconds
+
+Starting benchmark...
+
+bash : ERROR StatusLogger No log4j2 configuration file found. Using default con
+figuration: logging only errors to the console. Set system property 'log4j2.deb
+ug' to show Log4j2 internal initialization logging.
+所在位置 行:1 字符: 5
++ & { bash benchmark.sh throughput 30 5 2>&1 | Out-File -FilePath bench ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ERROR StatusLog...zation logging. 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by net.sf.cglib.core.ReflectUtils$1 (file:/m
+nt/d/workplace/java/raft1/raft-java-master/raft-java-example/env/client/lib/cgl
+ib-3.2.5.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte
+[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of net.sf.cglib.core
+.ReflectUtils$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflec
+tive access operations
+WARNING: All illegal access operations will be denied in a future release
+
+========== Benchmark Results ==========
+Test duration: 5587 ms (5.59 seconds)
+Total requests: 314
+Successful: 230
+Failed: 84
+Success rate: 73.25%
+Throughput: 56.20 requests/sec
+Total bytes: 6388
+Avg bytes/request: 20.34
+========================================

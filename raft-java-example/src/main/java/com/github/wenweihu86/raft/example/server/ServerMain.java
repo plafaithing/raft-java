@@ -19,8 +19,9 @@ import java.util.List;
  */
 public class ServerMain {
     public static void main(String[] args) {
-        if (args.length != 3) {
-            System.out.printf("Usage: ./run_server.sh DATA_PATH CLUSTER CURRENT_NODE\n");
+        if (args.length != 3 && args.length != 4) {
+            System.out.printf("Usage: ./run_server.sh DATA_PATH CLUSTER CURRENT_NODE [STRESS_TYPE]\n");
+            System.out.printf("  STRESS_TYPE: cpu, memory, or none (default: none)\n");
             System.exit(-1);
         }
         // parse args
@@ -36,6 +37,9 @@ public class ServerMain {
         }
         // local server
         RaftProto.Server localServer = parseServer(args[2]);
+        
+        // stress type (optional)
+        String stressType = args.length > 3 ? args[3] : "none";
 
         // 初始化RPCServer
         RpcServer server = new RpcServer(localServer.getEndpoint().getPort());
@@ -62,6 +66,62 @@ public class ServerMain {
         // 启动RPCServer，初始化Raft节点
         server.start();
         raftNode.init();
+        
+        // 启动压力任务（如果指定）
+        if (!"none".equals(stressType)) {
+            startStressTask(stressType);
+        }
+    }
+    
+    private static void startStressTask(String stressType) {
+        System.out.println("Starting stress task: " + stressType);
+        
+        new Thread(() -> {
+            try {
+                switch (stressType.toLowerCase()) {
+                    case "cpu":
+                        cpuStress();
+                        break;
+                    case "memory":
+                        memoryStress();
+                        break;
+                    default:
+                        System.out.println("Unknown stress type: " + stressType);
+                        break;
+                }
+            } catch (Exception e) {
+                System.out.println("Stress task error: " + e.getMessage());
+                e.printStackTrace();
+            }
+        }).start();
+    }
+    
+    private static void cpuStress() {
+        System.out.println("CPU stress started");
+        while (true) {
+            double result = 0;
+            for (int i = 0; i < 1000000; i++) {
+                result += Math.sqrt(i) * Math.sin(i);
+            }
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                break;
+            }
+        }
+    }
+    
+    private static void memoryStress() {
+        System.out.println("Memory stress started");
+        java.util.List<byte[]> memoryHog = new java.util.ArrayList<>();
+        while (true) {
+            memoryHog.add(new byte[10 * 1024 * 1024]);
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                break;
+            }
+        }
     }
 
     private static RaftProto.Server parseServer(String serverString) {

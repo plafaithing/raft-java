@@ -35,6 +35,9 @@ public class RaftOptions {
     // replicate最大等待超时时间，单位ms
     private long maxAwaitTimeout = 1000;
 
+    // 批量日志同步的最大等待超时时间，单位ms
+    private long batchMaxAwaitTimeout = 1000;
+
     // 与其他节点进行同步、选主等操作的线程池大小
     private int raftConsensusThreadNum = 20;
 

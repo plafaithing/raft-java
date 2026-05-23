@@ -54,6 +54,7 @@ message VoteRequest {
     optional uint64 term = 2; // 候选人的任期号
     optional uint64 last_log_term = 3; // 候选人的最后日志条目的任期号
     optional uint64 last_log_index = 4; // 候选人最后日志条目的索引值
+    optional double candidate_score = 5; // 新增字段：候选节点综合评分
 };
 
 message VoteResponse {
